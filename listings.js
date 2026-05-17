@@ -17,6 +17,6 @@ window.propertyListings = [
     description: "Copy this block when you want to add another listing.",
     image: "sample-listing.svg", // Fixed path
     linkText: "Call Raman",
-    link: "tel:16043024969"
+    link: "mailto:sellwithraman@yahoo.com?subject=Property listing details"
   }
 ];
