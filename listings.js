@@ -10,8 +10,10 @@ window.propertyListings = [
     link: "mailto:sellwithraman@yahoo.com?subject=Property listing details"
   },
   {
-    status: "Its Here!",
+    status: "Click below to see whats waiiting...",
     title: "Home sweet Home",
+    price: "",
+    deatails: "",
     description: "Click below to see your dream home!",
     image: "sample-listing.svg", // Fixed path
     linkText: "Email me for Details",
