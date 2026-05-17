@@ -16,7 +16,7 @@ window.propertyListings = [
     deatails: "",
     description: "Click below to see your dream home!",
     image: "sample-listing.svg", // Fixed path
-    linkText: "Email me for Details",
-    link: "mailto:sellwithraman@yahoo.com?subject=Property listing details"
+    linkText: "Town House IN Abbottsford",
+    link: "https://www.realtor.ca/real-estate/28925273/173-32550-maclure-road-abbotsford"
   }
 ];
