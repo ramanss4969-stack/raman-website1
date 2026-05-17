@@ -25,22 +25,16 @@ if (listingGrid && Array.isArray(window.propertyListings)) {
   const officeCard = listingGrid.querySelector(".office-card");
 
   window.propertyListings.forEach((listing) => {
-    const card = document.createElement("article");
-    card.className = "listing-card";
-    card.innerHTML = `
-      <img class="listing-image" src="${listing.image}" alt="${listing.title}" />
-      <div class="listing-copy">
-        <span class="card-kicker">${listing.status}</span>
-        <h3>${listing.title}</h3>
-        <p class="listing-price">${listing.price}</p>
-        <p class="listing-details">${listing.details}</p>
-        <p>${listing.description}</p>
-        <a href="${listing.link}">${listing.linkText}</a>
-      </div>
-    `;
+  const card = document.createElement("article");
+  card.className = "listing-card";
+  card.innerHTML = `
+    <a class="listing-banner-link" href="${listing.link}" aria-label="Open ${listing.title}">
+      <span class="listing-cta">${listing.title}</span>
+    </a>
+  `;
 
-    listingGrid.insertBefore(card, officeCard);
-  });
+  listingGrid.insertBefore(card, officeCard);
+});
 }
 
 const videoGrid = document.querySelector("#video-grid");
