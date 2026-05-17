@@ -681,6 +681,7 @@ body.alt-theme {
   margin-top: 12px;
   color: #ef6a4f; /* Gives your special call-to-action an eye-catching color */
 }
+  
 @media (max-width: 520px) {
   .hero {
     padding-top: 112px;
