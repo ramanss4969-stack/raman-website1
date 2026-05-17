@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Fraser Valley real estate market update">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0d5d62"/>
+      <stop offset=".48" stop-color="#162836"/>
+      <stop offset="1" stop-color="#11100e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="940" cy="162" r="108" fill="#ef6a4f" opacity=".9"/>
+  <path d="M0 500c142-52 282-78 419-53 152 28 228 91 390 72 138-16 240-71 391-82v238H0Z" fill="#050505" opacity=".68"/>
+  <path d="M150 370h190v150H150z" fill="#fffaf0" opacity=".82"/>
+  <path d="M124 374l121-94 121 94z" fill="#c79a34"/>
+  <path d="M420 292h170v228H420z" fill="#fffaf0" opacity=".68"/>
+  <path d="M394 298l111-88 111 88z" fill="#ef6a4f"/>
+  <path d="M685 250h225v270H685z" fill="#fffaf0" opacity=".76"/>
+  <path d="M650 258l148-112 148 112z" fill="#40294a"/>
+  <path d="M520 96h2v470h-2z" fill="#fffaf0" opacity=".2"/>
+  <text x="76" y="112" fill="#f3cb48" font-family="Arial, sans-serif" font-size="34" font-weight="700">FRASER VALLEY</text>
+  <text x="76" y="178" fill="#fffaf0" font-family="Arial, sans-serif" font-size="64" font-weight="800">Market Update</text>
+  <text x="76" y="240" fill="#fffaf0" opacity=".78" font-family="Arial, sans-serif" font-size="30">Buyer-favouring conditions with renewed spring activity</text>
+  <circle cx="1030" cy="504" r="62" fill="#fffaf0" opacity=".95"/>
+  <path d="M1012 470v68l58-34z" fill="#11100e"/>
+</svg>
