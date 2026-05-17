@@ -34,8 +34,8 @@ if (listingGrid && Array.isArray(window.propertyListings)) {
       <div class="listing-copy">
         <span class="card-kicker">${listing.status}</span>
         <h3>${listing.title}</h3>
-        <p class="listing-price">${listing.price}</p>
-        <p class="listing-details">${listing.details}</p>
+       ${listing.price ? `<p class="listing-price">${listing.price}</p>` : ''}
+${listing.details ? `<p class="listing-details">${listing.details}</p>` : ''}
         <p>${listing.description}</p>
         <a href="${listing.link}">${listing.linkText}</a>
       </div>
