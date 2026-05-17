@@ -672,7 +672,15 @@ body.alt-theme {
     flex-direction: column;
   }
 }
-
+.listing-card:nth-of-type(2) .listing-copy a {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.25rem; 
+  display: inline-block;
+  margin-top: 12px;
+  color: #ef6a4f; /* Gives your special call-to-action an eye-catching color */
+}
 @media (max-width: 520px) {
   .hero {
     padding-top: 112px;
