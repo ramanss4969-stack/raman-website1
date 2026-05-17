@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Property listing placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0d5d62"/>
+      <stop offset=".55" stop-color="#162836"/>
+      <stop offset="1" stop-color="#c79a34"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <path d="M0 600c170-70 310-91 451-64 174 33 243 110 424 84 135-20 218-79 325-91v271H0Z" fill="#11100e" opacity=".78"/>
+  <path d="M260 360h260v260H260z" fill="#fffaf0" opacity=".82"/>
+  <path d="M230 365l160-130 160 130z" fill="#ef6a4f"/>
+  <path d="M640 286h280v334H640z" fill="#fffaf0" opacity=".72"/>
+  <path d="M600 300l180-138 180 138z" fill="#40294a"/>
+  <path d="M333 438h54v72h-54zM432 438h54v72h-54zM716 380h54v72h-54zM814 380h54v72h-54zM716 500h54v72h-54zM814 500h54v72h-54z" fill="#0d5d62" opacity=".75"/>
+  <text x="600" y="710" fill="#fffaf0" font-family="Arial, sans-serif" font-size="54" font-weight="700" text-anchor="middle">Add Property Photo</text>
+</svg>
