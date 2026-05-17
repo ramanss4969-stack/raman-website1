@@ -9,14 +9,14 @@ window.propertyListings = [
     linkText: "Ask for Details",
     link: "mailto:sellwithraman@yahoo.com?subject=Property listing details"
   },
-  {
-    status: "Click below to see whats waiiting...",
-    title: "Home sweet Home",
-    price: "",
-    deatails: "",
-    description: "An affordable Townhouse in abbotsford. Perfect for the first time home buyer and investors alike",
-    image: "sample-listing.svg", // Fixed path
-    linkText: "Townhouse in Abbottsford",
+ {
+    status: "Active",
+    title: "Beautiful Townhouse in Abbotsford",
+    price: "565000", // Adds a price to match sizes
+    details: "Abbotsford | 3 beds | 2 baths", // Adds the details line
+    description: "An affordable Townhouse in Abbotsford. Perfect for the first-time home buyer and investors alike. Great location close to transit, parks, and schools.",
+    image: "sample-listing.svg", 
+    linkText: "Click for Details",
     link: "https://www.realtor.ca/real-estate/28925273/173-32550-maclure-road-abbotsford"
   }
 ];
