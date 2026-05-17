@@ -53,23 +53,17 @@ if (videoGrid && Array.isArray(window.siteVideos)) {
     card.className = "video-card";
     const hasVideo = item.video && item.video.trim().length > 0;
 
-    card.innerHTML = `
-      ${
-        hasVideo
-          ? `<video controls preload="metadata" poster="${item.poster}">
-              <source src="${item.video}" type="video/mp4" />
-            </video>`
-          : `<div class="video-poster" style="background-image: url('${item.poster}')">
-              <span class="play-badge" aria-hidden="true">Info</span>
-            </div>`
-      }
-      <div class="video-copy">
-        <span class="card-kicker">${item.status}</span>
-        <h3>${item.title}</h3>
-        <p>${item.description}</p>
-        <a href="${item.link}">${item.linkText}</a>
-      </div>
-    `;
+   card.innerHTML = `
+  ${listing.image ? `<div class="listing-photo" style="background-image: url('${listing.image}')"></div>` : ''}
+  <div class="listing-copy">
+    <span class="card-kicker">${listing.status}</span>
+    <h3>${listing.title}</h3>
+    <p class="listing-price">${listing.price}</p>
+    <p class="listing-details">${listing.details}</p>
+    <p>${listing.description}</p>
+    <a href="${listing.link}">${listing.linkText}</a>
+  </div>
+`;
 
     videoGrid.insertBefore(card, uploadNote);
   });
