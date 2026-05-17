@@ -1,11 +1,11 @@
 window.propertyListings = [
   {
-    status: "Coming soon",
+    status: "Active",
     title: "Family home in Surrey",
-    price: "Contact for price",
-    details: "Surrey | 0 beds | 0 baths",
-    description: "Add the city, bedrooms, bathrooms, price, and best property highlights here.",
-    image: "sample-listing.svg", // Fixed path
+    price: "1499888",
+    details: "Surrey | 6 beds | 5 baths",
+    description: "Strong rental income potential -Includes rare 1-bedroom detached legal coach house with full kitchen and laundry -Also features a 2-bedroom basement suite with separate entry, full kitchen, and laundry -Total of 3 separate washer/dryer units -Spacious, well-appointed main home -Situated on one of the largest lots in the area (nearly 4,000 sq ft) (31844211)",
+    image: "surrey listing.jpg", // Fixed path
     linkText: "Ask for Details",
     link: "mailto:sellwithraman@yahoo.com?subject=Property listing details"
   },
