@@ -713,7 +713,7 @@ body.alt-theme {
 /* Increase the font size of the property card buttons everywhere */
 .listing-card .button, 
 .listing-card a {
-    font-size: 1.25rem; /* Made it noticeably larger and clean */
+    font-size: 2.0rem; /* Made it noticeably larger and clean */
     font-weight: 600;  
     display: inline-block;
 }
