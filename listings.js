@@ -10,13 +10,11 @@ window.propertyListings = [
     link: "mailto:sellwithraman@yahoo.com?subject=Property listing details"
   },
   {
-    status: "Coming soon",
-    title: "Townhome or condo",
-    price: "Contact for price",
-    details: "City | 0 beds | 0 baths",
-    description: "Copy this block when you want to add another listing.",
+    status: "Its Here!",
+    title: "Home sweet Home",
+    description: "Click below to see your dream home!",
     image: "sample-listing.svg", // Fixed path
-    linkText: "Call Raman",
+    linkText: "Email me for Details",
     link: "mailto:sellwithraman@yahoo.com?subject=Property listing details"
   }
 ];
