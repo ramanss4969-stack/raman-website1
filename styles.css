@@ -177,8 +177,8 @@ h1 {
 
 h2 {
   margin: 0;
-  font-size: clamp(2.2rem, 5vw, 5.5rem);
-  line-height: 0.95;
+  font-size: 2.2rem; /* Shrunk down to a clean, fixed size */
+  line-height: 1.1;   /* Slightly increased so lines don't overlap at a smaller size */
   letter-spacing: 0;
 }
 
