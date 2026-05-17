@@ -671,7 +671,7 @@ body.alt-theme {
     align-items: start;
     flex-direction: column;
   }
-}
+
 .listing-card:nth-of-type(2) .listing-copy a {
   font-weight: 800;
   text-transform: uppercase;
