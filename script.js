@@ -19,16 +19,18 @@ cards.forEach((card) => {
   });
 });
 
+// --- PROPERTY LISTINGS GRID ---
 const listingGrid = document.querySelector("#listing-grid");
-
 if (listingGrid && Array.isArray(window.propertyListings)) {
   const officeCard = listingGrid.querySelector(".office-card");
-
+  
   window.propertyListings.forEach((listing) => {
     const card = document.createElement("article");
     card.className = "listing-card";
+    
+    // Condition to completely hide the image container if there is no image path
     card.innerHTML = `
-      <img class="listing-image" src="${listing.image}" alt="${listing.title}" />
+      ${listing.image ? `<div class="listing-photo" style="background-image: url('${listing.image}')"></div>` : ''}
       <div class="listing-copy">
         <span class="card-kicker">${listing.status}</span>
         <h3>${listing.title}</h3>
@@ -38,33 +40,35 @@ if (listingGrid && Array.isArray(window.propertyListings)) {
         <a href="${listing.link}">${listing.linkText}</a>
       </div>
     `;
-
     listingGrid.insertBefore(card, officeCard);
   });
 }
 
+// --- VIDEOS GRID ---
 const videoGrid = document.querySelector("#video-grid");
-
 if (videoGrid && Array.isArray(window.siteVideos)) {
   const uploadNote = videoGrid.querySelector(".upload-note");
-
+  
   window.siteVideos.forEach((item) => {
     const card = document.createElement("article");
     card.className = "video-card";
-    const hasVideo = item.video && item.video.trim().length > 0;
-
-   card.innerHTML = `
-  ${listing.image ? `<div class="listing-photo" style="background-image: url('${listing.image}')"></div>` : ''}
-  <div class="listing-copy">
-    <span class="card-kicker">${listing.status}</span>
-    <h3>${listing.title}</h3>
-    <p class="listing-price">${listing.price}</p>
-    <p class="listing-details">${listing.details}</p>
-    <p>${listing.description}</p>
-    <a href="${listing.link}">${listing.linkText}</a>
-  </div>
-`;
-
+    
+    // Fixed: Now accurately targets 'item' variables for your videos
+    card.innerHTML = `
+      <div class="video-thumb" style="background-image: url('${item.poster}')">
+        <div class="play-button">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path d="M8 5v14l11-7z" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+      <div class="video-copy">
+        <span class="card-kicker">${item.status}</span>
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+        <a href="${item.link}">${item.linkText}</a>
+      </div>
+    `;
     videoGrid.insertBefore(card, uploadNote);
   });
 }
