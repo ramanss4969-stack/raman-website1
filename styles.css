@@ -707,4 +707,13 @@ body.alt-theme {
   .work-card h3 {
     margin-top: 160px;
   }
+  
+} /* This closing bracket ends the mobile media query perfectly */
+
+/* Increase the font size of the property card buttons everywhere */
+.listing-card .button, 
+.listing-card a {
+    font-size: 1.25rem; /* Made it noticeably larger and clean */
+    font-weight: 600;  
+    display: inline-block;
 }
