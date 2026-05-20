@@ -167,9 +167,9 @@
   let isEditing = false;
   let activeElement = null;
 
-  // Secret Key Shortcut: Pressing Ctrl + Shift + E opens your editor
+  // Secret Key Shortcut: Pressing the backtick key (`) opens your editor
   document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
+    if (e.key === '`') {
       e.preventDefault();
       const panel = document.getElementById('admin-panel');
       if (panel.style.display === 'none') {
