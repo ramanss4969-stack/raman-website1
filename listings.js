@@ -15,7 +15,7 @@ window.propertyListings = [
     price: "", // Adds a price to match sizes
     details: "", // Adds the details line
     description: "An affordable Townhouse in Abbotsford. Perfect for the first-time home buyer and investors alike. Great location close to transit, parks, and schools.",
-    image: "sample-listing.svg", 
+    image: "abbotsford.jpg", 
     linkText: "Inquire for details",
     link: ""
   }
