@@ -154,7 +154,52 @@
         </div>
       </section>
     </main>
-    <script src="listings.js?v=1"></script>
-    <script src="script.js?v=2"></script>
-  </body>
+   <script src="listings.js?v=1"></script>
+  <script src="script.js?v=2"></script>
+
+  <div id="admin-panel" style="position: fixed; bottom: 20px; right: 20px; z-index: 10000; background: #fff; padding: 12px; border: 2px solid #d4af37; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-family: 'Inter', sans-serif;">
+    <button id="edit-btn" onclick="toggleEditMode()" style="background: #111; color: #fff; border: none; padding: 10px 16px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: background 0.2s;">
+      Open Visual Editor
+    </button>
+  </div>
+
+  <script>
+  let isEditing = false;
+
+  function toggleEditMode() {
+    isEditing = !isEditing;
+    const btn = document.getElementById('edit-btn');
+    
+    document.body.contentEditable = isEditing;
+    
+    if (isEditing) {
+      btn.innerText = "Save & Download Index";
+      btn.style.background = "#d4af37";
+      btn.style.color = "#000";
+      document.getElementById('admin-panel').contentEditable = false;
+    } else {
+      btn.innerText = "Open Visual Editor";
+      btn.style.background = "#111";
+      btn.style.color = "#fff";
+      saveWebsiteChanges();
+    }
+  }
+
+  function saveWebsiteChanges() {
+    document.body.removeAttribute('contenteditable');
+    
+    const updatedHtml = "<!doctype html>\n" + document.documentElement.outerHTML;
+    
+    const blob = new Blob([updatedHtml], { type: "text/html" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "index.html";
+    a.click();
+    
+    alert("Success! Your modified index.html has been downloaded. Simply drag and drop this file back into your GitHub repository to update your live site.");
+    
+    document.getElementById('admin-panel').contentEditable = false;
+  }
+  </script>
+</body>
 </html>
