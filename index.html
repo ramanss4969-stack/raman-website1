@@ -163,11 +163,13 @@
     </button>
   </div>
 
-  <script>
+<script>
   let isEditing = false;
+  let activeElement = null;
 
   // Secret Key: Double-clicking the page toggles the editor button visibility
-  document.addEventListener('dblclick', function() {
+  document.addEventListener('dblclick', function(e) {
+    if (e.target.closest('#admin-panel') || e.target.closest('#position-controls')) return;
     const panel = document.getElementById('admin-panel');
     if (panel.style.display === 'none') {
       panel.style.display = 'block';
@@ -175,6 +177,60 @@
       panel.style.display = 'none';
     }
   });
+
+  // Track which item you are editing to show position arrows
+  document.addEventListener('click', function(e) {
+    if (!isEditing) return;
+    if (e.target.closest('#admin-panel') || e.target.closest('#position-controls')) return;
+    
+    activeElement = e.target;
+    showPositionControls(activeElement);
+  });
+
+  function showPositionControls(el) {
+    let controls = document.getElementById('position-controls');
+    if (!controls) {
+      controls = document.createElement('div');
+      controls.id = 'position-controls';
+      controls.style = 'position: absolute; z-index: 10001; background: #111; padding: 4px; border-radius: 4px; display: flex; gap: 4px;';
+      controls.contentEditable = false;
+      controls.innerHTML = `
+        <button onclick="moveText('up')" style="background:none;color:#fff;border:none;cursor:pointer;font-weight:bold;padding:2px 6px;">↑</button>
+        <button onclick="moveText('down')" style="background:none;color:#fff;border:none;cursor:pointer;font-weight:bold;padding:2px 6px;">↓</button>
+        <button onclick="moveText('left')" style="background:none;color:#fff;border:none;cursor:pointer;font-weight:bold;padding:2px 6px;">←</button>
+        <button onclick="moveText('right')" style="background:none;color:#fff;border:none;cursor:pointer;font-weight:bold;padding:2px 6px;">→</button>
+      `;
+      document.body.appendChild(controls);
+    }
+    
+    const rect = el.getBoundingClientRect();
+    controls.style.top = `${rect.top + window.scrollY - 30}px`;
+    controls.style.left = `${rect.left + window.scrollX}px`;
+    controls.style.display = 'flex';
+  }
+
+  function moveText(direction) {
+    if (!activeElement) return;
+    
+    // Get current values or default to 0
+    let currentTop = parseInt(window.getComputedStyle(activeElement).marginTop) || 0;
+    let currentBottom = parseInt(window.getComputedStyle(activeElement).marginBottom) || 0;
+    let currentLeft = parseInt(window.getComputedStyle(activeElement).paddingLeft) || 0;
+
+    if (direction === 'up') {
+      activeElement.style.marginTop = `${currentTop - 2}px`;
+    } else if (direction === 'down') {
+      activeElement.style.marginBottom = `${currentBottom - 2}px`;
+      activeElement.style.marginTop = `${currentTop + 2}px`;
+    } else if (direction === 'left') {
+      activeElement.style.paddingLeft = `${Math.max(0, currentLeft - 2)}px`;
+    } else if (direction === 'right') {
+      activeElement.style.paddingLeft = `${currentLeft + 2}px`;
+    }
+    
+    // Reposition the arrow tool box dynamically
+    showPositionControls(activeElement);
+  }
 
   function toggleEditMode() {
     isEditing = !isEditing;
@@ -191,15 +247,18 @@
       btn.innerText = "Open Visual Editor";
       btn.style.background = "#111";
       btn.style.color = "#fff";
+      const controls = document.getElementById('position-controls');
+      if (controls) controls.style.display = 'none';
       saveWebsiteChanges();
     }
   }
 
   function saveWebsiteChanges() {
     document.body.removeAttribute('contenteditable');
-    
-    // Hide the panel again before rendering the final HTML clean copy
     document.getElementById('admin-panel').style.display = 'none';
+    
+    const controls = document.getElementById('position-controls');
+    if (controls) controls.remove();
     
     const updatedHtml = "<!doctype html>\n" + document.documentElement.outerHTML;
     
@@ -210,7 +269,6 @@
     a.click();
     
     alert("Success! Your modified index.html has been downloaded. Simply drag and drop this file back into your GitHub repository to update your live site.");
-    
     document.getElementById('admin-panel').contentEditable = false;
   }
   </script>
