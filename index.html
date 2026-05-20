@@ -154,7 +154,7 @@
         </div>
       </section>
     </main>
-   <script src="listings.js?v=1"></script>
+<script src="listings.js?v=1"></script>
   <script src="script.js?v=2"></script>
 
   <div id="admin-panel" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 10000; background: #fff; padding: 12px; border: 2px solid #d4af37; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-family: 'Inter', sans-serif;">
@@ -163,18 +163,20 @@
     </button>
   </div>
 
-<script>
+  <script>
   let isEditing = false;
   let activeElement = null;
 
-  // Secret Key: Double-clicking the page toggles the editor button visibility
-  document.addEventListener('dblclick', function(e) {
-    if (e.target.closest('#admin-panel') || e.target.closest('#position-controls')) return;
-    const panel = document.getElementById('admin-panel');
-    if (panel.style.display === 'none') {
-      panel.style.display = 'block';
-    } else if (!isEditing) {
-      panel.style.display = 'none';
+ // Secret Key Shortcut: Pressing Ctrl + Shift + E opens your editor
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
+      e.preventDefault();
+      const panel = document.getElementById('admin-panel');
+      if (panel.style.display === 'none') {
+        panel.style.display = 'block';
+      } else if (!isEditing) {
+        panel.style.display = 'none';
+      }
     }
   });
 
@@ -204,38 +206,35 @@
     }
     
     const rect = el.getBoundingClientRect();
-    controls.style.top = `${rect.top + window.scrollY - 30}px`;
-    controls.style.left = `${rect.left + window.scrollX}px`;
+    controls.style.top = \`\${rect.top + window.scrollY - 30}px\`;
+    controls.style.left = \`\${rect.left + window.scrollX}px\`;
     controls.style.display = 'flex';
   }
 
   function moveText(direction) {
     if (!activeElement) return;
     
-    // Get current values or default to 0
     let currentTop = parseInt(window.getComputedStyle(activeElement).marginTop) || 0;
     let currentBottom = parseInt(window.getComputedStyle(activeElement).marginBottom) || 0;
     let currentLeft = parseInt(window.getComputedStyle(activeElement).paddingLeft) || 0;
 
     if (direction === 'up') {
-      activeElement.style.marginTop = `${currentTop - 2}px`;
+      activeElement.style.marginTop = \`\${currentTop - 2}px\`;
     } else if (direction === 'down') {
-      activeElement.style.marginBottom = `${currentBottom - 2}px`;
-      activeElement.style.marginTop = `${currentTop + 2}px`;
+      activeElement.style.marginBottom = \`\${currentBottom - 2}px\`;
+      activeElement.style.marginTop = \`\${currentTop + 2}px\`;
     } else if (direction === 'left') {
-      activeElement.style.paddingLeft = `${Math.max(0, currentLeft - 2)}px`;
+      activeElement.style.paddingLeft = \`\${Math.max(0, currentLeft - 2)}px\`;
     } else if (direction === 'right') {
-      activeElement.style.paddingLeft = `${currentLeft + 2}px`;
+      activeElement.style.paddingLeft = \`\${currentLeft + 2}px\`;
     }
     
-    // Reposition the arrow tool box dynamically
     showPositionControls(activeElement);
   }
 
   function toggleEditMode() {
     isEditing = !isEditing;
     const btn = document.getElementById('edit-btn');
-    
     document.body.contentEditable = isEditing;
     
     if (isEditing) {
@@ -260,8 +259,7 @@
     const controls = document.getElementById('position-controls');
     if (controls) controls.remove();
     
-    const updatedHtml = "<!doctype html>\n" + document.documentElement.outerHTML;
-    
+    const updatedHtml = "<!doctype html>\\n" + document.documentElement.outerHTML;
     const blob = new Blob([updatedHtml], { type: "text/html" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
