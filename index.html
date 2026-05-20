@@ -167,7 +167,7 @@
   let isEditing = false;
   let activeElement = null;
 
- // Secret Key Shortcut: Pressing Ctrl + Shift + E opens your editor
+  // Secret Key Shortcut: Pressing Ctrl + Shift + E opens your editor
   document.addEventListener('keydown', function(e) {
     if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') {
       e.preventDefault();
@@ -179,7 +179,6 @@
       }
     }
   });
-
   // Track which item you are editing to show position arrows
   document.addEventListener('click', function(e) {
     if (!isEditing) return;
